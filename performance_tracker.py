@@ -1,6 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def grade(s):
+    if s > 9:
+        return "Excellent"
+    elif s > 8:
+        return "Very Good"
+    elif s > 7:
+        return "Good"
+    elif s > 6:
+        return "Average"
+    elif s > 5:
+        return "Need Improvement"
+    else:
+        return "Poor"
+
 # Student name is taken as input
 stud_name = input('Enter Your Name: ')
 
@@ -25,6 +39,11 @@ plt.title('Performance Report Of ' + stud_name)
 plt.xlabel('Semesters')
 plt.ylabel('SGPA')
 plt.xticks(np_sem)
+
+for i in list(range(num_sem)):
+    sem_i = np_sem[i]
+    sgpa_i = np_sgpa[i]
+    plt.text(sem_i, sgpa_i, grade(sgpa_i))
 
 # plot is displayed
 plt.show()
